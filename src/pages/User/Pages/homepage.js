@@ -7,7 +7,7 @@ import Footer from '../Component/Footer'
 import Home from "../Component/Home/Home"
 import About from "./About/About";
 import Cookies from "./Cookies/Cookies";
-import DownloadApp from "./DownloadApp/DownloadApp";
+// import DownloadApp from "./DownloadApp/DownloadApp";
 import Help from "./Help/Help";
 import Invest from "./Invest/Invest";
 import PressKit from "./PressKit/PressKit";
@@ -46,7 +46,7 @@ export default function HomePage() {
           <Cookies />
         </Match>
         <Match path="User/Pages/DownloadApp/DownloadApp">
-          <DownloadApp />
+          {/* <DownloadApp /> */}
         </Match>
         <Match path="User/Pages/Help/Help">
           <Help />
