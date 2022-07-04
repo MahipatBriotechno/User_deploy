@@ -14,7 +14,7 @@ const useStyles = makeStyles({
   },
   dialog_like: {
     backgroundColor: "#fff",
-    width: "fit-content",
+    maxWidth: "fit-content",
     borderRadius: "6px",
     boxShadow: "2px 2px 10px 0px black",
     borderLeft: "solid 5px #209ca2",
@@ -23,7 +23,12 @@ const useStyles = makeStyles({
     backgroundColor: "#209ca2 !important",
     color: "#fff !important",
     minWidth: "160px",
+    padding: '15px',
+
   },
+  link: {
+    textDecoration: 'none'
+  }
 });
 
 export { useStyles };

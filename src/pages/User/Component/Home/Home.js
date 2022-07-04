@@ -19,13 +19,10 @@ import {
   styleFunctionSx,
 } from "@material-ui/system";
 import styled, { ThemeProvider } from "styled-components";
-
+import SelectWithImage from "../../Component/SelectWithImage/SelectWithImage";
 import VerticalTabsCalender from "../VerticalTabsCalender/VerticalTabsCalender";
 import DropdownMenu from "../DropdownMenu";
-import { useNavigate } from "react-router-dom";
-import SelectWithImage from "../SelectWithImage/SelectWithImage";
-
-
+import { Link as NavLink } from 'gatsby'
 const styleFunction = styleFunctionSx(compose(spacing, palette));
 const Box = styled.div(styleFunction);
 
@@ -36,15 +33,9 @@ const Box = styled.div(styleFunction);
 //   },
 // });
 
-
 const Home = () => {
   const classes = useStyles();
-  
-  let navigate = useNavigate();
 
-  function handleClickNavigate() {
-    navigate("/searchClub");
-  }
 
   const DATA_AutoComplete = [
     { title: "Stockholms stad 1" },
@@ -73,18 +64,18 @@ const Home = () => {
             label="Klubb, postkod, stad…"
             options={DATA_AutoComplete}
           />
-          
+          <NavLink to="/User/Pages/SearchClub/" className={classes.link}>
             <Button
               className={classes.btn_primary}
-              onClick={handleClickNavigate}
+              // onClick={handleDialogClose}
               variant="containedPrimary"
               color="primary"
-              // autoFocus
-              // disabled
+              
+
             >
               Sök
             </Button>
-         
+          </NavLink>
         </Box>
       </>
     );
@@ -103,6 +94,7 @@ const Home = () => {
           <DialogBoxContent />
         </Box>
       </Box>
+
     </div>
   );
 };

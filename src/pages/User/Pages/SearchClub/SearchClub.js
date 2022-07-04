@@ -14,7 +14,6 @@ import AddtoFavourites from "../../../../images/icon/AddtoFavourites.svg";
 import favourite from "../../../../images/icon/favourite.svg";
 import location from "../../../../images/icon/location.svg";
 import clock from "../../../../images/icon/clock.svg";
-import gtg_logo from "../../../../images/logo/gtg-logo.svg";
 import DropdownMenu from "../../Component/DropdownMenu";
 import VerticalTabsCalender from "../../Component/VerticalTabsCalender/VerticalTabsCalender";
 import AutoCompleteBox from "../../Component/AutoCompleteBox";
@@ -31,6 +30,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Pagination from "@material-ui/lab/Pagination";
 import DialogBox from "../../Component/DialogBox/DialogBox";
 import CheckoutContent from "./CheckoutContent/CheckoutContent";
+
 
 
 const Data_Inomhus_Utomhus = [{ label: "Inomhus Utomhus" }];
@@ -85,8 +85,6 @@ const SearchClub = () => {
     setVisible(index);
     setRowIndex(index_row);
   };
-
-  
 
   return (
     <>
@@ -328,7 +326,7 @@ const SearchClub = () => {
       </div>
 
       {/* Book Now DialogBox */}
-      <DialogBox open={openDialogBox} handleClose={handleCloseDialogBox} DialogTitle="" subTitle="" content={<CheckoutContent />}  />
+      <DialogBox open={openDialogBox} handleClose={handleCloseDialogBox} DialogTitle="" subTitle="" content={<CheckoutContent />} />
     </>
   );
 };

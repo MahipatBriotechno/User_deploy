@@ -2,11 +2,11 @@ import { InputLabel, makeStyles } from '@material-ui/core';
 import React, { useState } from 'react'
 import Select from 'react-select'
 function SelectWithIcon({ placeHolder, data, label }) {
-    const [selectedOption, setSelectedOption] = useState('');
+    const [selectedOption, setSelectedOption] = useState(null);
 
     // handle onChange event of the dropdown
     const handleChange = e => {
-        setSelectedOption(e.target.value);
+        setSelectedOption(e);
     }
 
     const style = {
@@ -66,15 +66,3 @@ function SelectWithIcon({ placeHolder, data, label }) {
 }
 
 export default SelectWithIcon
-
-
-
-// How to use 
-
-// const DATA_PRICE = [
-//     { label: "SEK", value: 1, icon: flag },
-//     { label: "SEK", value: 2, icon: flag },
-//     { label: "SEK", value: 3, icon: flag },
-// ];
-
-// <SelectWithIcon data={DATA_PRICE} placeHolder="Select Sport" label="" />

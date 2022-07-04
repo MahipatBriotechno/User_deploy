@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
       borderColor: "#209ca2",
       borderWidth: 1,
     },
-    
     "& .MuiAutocomplete-option": {
       "&:focus": {
         backgroundColor: "#209ca2",
@@ -84,7 +83,7 @@ const AutoCompleteBox = (props) => {
         return option.title;
       }}
       renderOption={(option) => option.title}
-      style={{ width: "350px",  }}
+      style={{ width: "350px" }}
       freeSolo
       renderInput={(params) => (
         <TextField

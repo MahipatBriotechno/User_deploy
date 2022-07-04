@@ -16,11 +16,11 @@ import styled, { ThemeProvider } from "styled-components";
 import { makeStyles } from "@material-ui/core";
 const styleFunction = styleFunctionSx(compose(spacing, palette));
 
+const Box = styled.div(styleFunction);
 const useStyles = makeStyles((theme) => ({
   dialog_root: {
     "& .MuiDialog-paperWidthSm": {
       maxWidth: "100%",
-      overflowX: 'hidden',
     },
   },
   close: {
@@ -31,19 +31,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Box = styled.div(styleFunction);
-
 const DialogBox = (props) => {
-  const classes = useStyles();
-  const {
-    open,
-    handleClose,
-    DialogTitle,
-    subTitle,
-    content,
-    dialog_custom_style,
-    topLogo
-  } = props;
+  const classes=useStyles();
+  const { open, handleClose, DialogTitle, subTitle, content } = props;
   //   const [open, setOpen] = React.useState(false);
 
   //   const handleClickOpen = () => {
@@ -53,48 +43,29 @@ const DialogBox = (props) => {
   //   const handleClose = () => {
   //     setOpen(false);
   //   };
+ 
 
   return (
-    <div className={dialog_custom_style}>
+    <div>
       {/* <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Open alert dialog
       </Button> */}
       <Dialog
-        disableEscapeKeyDown
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-        style={{ maxWidth: "auto" }}
-        className={` ${classes.dialog_root} ${dialog_custom_style}`}
-      >
-        {/* <Box sx={{ padding: "16px 24px 5px" }} id="alert-dialog-title">
-        {topLogo && <img src={topLogo} /> }
-          {DialogTitle && (
-            <h2 style={{ fontSize: 24, fontWeight: 500, marginBottom: 15 }}>
-              {DialogTitle}
-            </h2>
-          )}
-          {subTitle && <p>{subTitle}</p>}
-        </Box> */}
-        <Box >
-          <CloseIcon className={classes.close} onClick={handleClose} />
-          {content}
-          {/* <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-              Let Google help apps determine location. This means sending
-              anonymous location data to Google, even when no apps are running.
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose} color="primary">
-              Disagree
-            </Button>
-            <Button onClick={handleClose} color="primary" autoFocus>
-              Agree
-            </Button>
-          </DialogActions> */}
-        </Box>
+      disableEscapeKeyDown
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="alert-dialog-title"
+      aria-describedby="alert-dialog-description"
+      style={{ maxWidth: "auto" }}
+      className={classes.dialog_root}
+    >
+      <Box sx={{ padding: "16px 24px 5px" }} id="alert-dialog-title">
+        <h2 style={{ fontSize: 24, fontWeight: 500, marginBottom: 15 }}>
+          {DialogTitle}
+        </h2>
+        {subTitle && <p>{subTitle}</p>}
+        <CloseIcon className={classes.close} onClick={handleClose} />
+      </Box>
       </Dialog>
     </div>
   );
