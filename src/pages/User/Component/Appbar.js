@@ -1,125 +1,204 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import logo from '../../../images/logo.svg'
-import logoText from '../../../images/name_logo.svg'
-import '../../../../src/index.css'
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import logo from "../../../images/logo.svg";
 
-import { Button, Grid } from '@material-ui/core'
+import logoText from "../../../images/name_logo.svg";
+import "../../../index.css";
+
+import { Button, Grid } from "@material-ui/core";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
-import { ReactComponent as userIcon } from '../../../images/user_logo.svg'
-import laptopIcon from '../../../images/laptop.svg'
-import logoutIcon from '../../../images/logout.svg'
-import loginLogo from '../../../images/sign_in.svg';
-import { Link } from 'gatsby'
-import {
-  Select,
-  SvgIcon,
-  Box,
-} from "@material-ui/core";
+import { ReactComponent as userIcon } from "../../../images/user_logo.svg";
+import Container from "@material-ui/core/Container";
+
+import laptopIcon from "../../../images/laptop.svg";
+import logoutIcon from "../../../images/logout.svg";
+import loginLogo from "../../../images/sign_in.svg";
+import { Select, SvgIcon, Box } from "@material-ui/core";
+import DialogBox from "./DialogBox/DialogBox";
+import SignIn from "./SignIn";
+import {Link} from 'gatsby'
+// import { useNavigate } from "react-router-dom";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    fontFamily: 'DM Sans',
-    width: '100%'
+    fontFamily: "DM Sans",
+    width: "100%",
   },
   appBar: {
     backgroundColor: "#FFFFFF",
-    height: "50px",
-    '& .MuiToolbar-regular': {
-      minHeight: "50px"
+    height: "80px",
+    display: "flex",
+    justifyContent: "center",
+    // marginBottom: 15,
+    // height: '8vh',
+    "& .MuiToolbar-regular": {
+      minHeight: "50px",
     },
-    width: '100%'
+    "& .MuiToolbar-gutters": {
+      paddingLeft: "0px",
+      paddingRight: "0px",
+    },
+    width: "100%",
   },
   appHeading: {
-    marginLeft: '7px',
-    marginTop: '7px',
-    alignItems: 'center'
+    marginLeft: "7px",
+    marginTop: "7px",
+    alignItems: "center",
   },
   name: {
-    marginLeft: '100px',
-    marginRight: "15px",
-    paddingRight: '15px'
+    // marginLeft: "100px",
+    // marginRight: "15px",
+    // paddingRight: "15px",
   },
   navLink: {
-    color: '#000000',
-    marginLeft: '40px'
+    color: "#000000",
+    // paddingLeft: "110px",
+    display: "flex",
+    gap: "50px",
   },
   link: {
     textTransform: "unset",
     color: "#a5a5a5",
-    marginLeft: "100px",
-    textDecoration: "unset"
+    textDecoration: "unset",
+    cursor: "pointer",
   },
   signIn: {
-    height: '25px'
-  }
-})
-);
+    height: "25px",
+  },
+  dialog_custom_style: {
+    "& .MuiDialog-paperWidthSm": {
+      maxWidth: "100%",
+      overflowX: "hidden",
+      overflow: "hidden",
+      borderRadius: "15px",
+    },
+  },
+  rightBtns: {
+    marginLeft: "auto",
+    display: "flex",
+    alignItems: "center",
+    gap: "30px",
+  },
+  menu: {
+    display: "flex",
+    alignItems: "center",
+  },
+}));
 
 const theme = createTheme({
   link: {
-    fontFamily: [
-      "DM Sans",
-      "sans-serif"
-    ].join(","),
-    fontSize: '18px',
-
-  }
-
+    fontFamily: ["DM Sans", "sans-serif"].join(","),
+    fontSize: "18px",
+  },
 });
 
 const userMenu = [
   {
     icon: laptopIcon,
-    title: "Platform"
+    title: "Platform",
   },
   {
     icon: logoutIcon,
-    title: "Platform"
+    title: "Platform",
   },
-
-]
+];
 
 export default function AppBarNew() {
   const classes = useStyles();
 
+  const [openDialogBox, setOpenDialogBox] = React.useState(false);
+
+  const handleClickOpenDialogBox = () => {
+    setOpenDialogBox(true);
+  };
+  const handleCloseDialogBox = () => {
+    setOpenDialogBox(false);
+  };
+
+  // let navigate = useNavigate();
+  function handleClickDownloadApp() {
+    // navigate("/downloadApp");
+    // alert('hello')
+  }
+
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <div className={classes.root}>
-        <AppBar elevation={0} position="static" className={classes.appBar}>
+        <Container>
+          <ThemeProvider theme={theme}>
+            <AppBar elevation={0} position="static" className={classes.appBar}>
+              <Toolbar className={classes.name}>
+                <Grid
+                  // justifyContent="space-around"
+                  alignItems="center"
+                  container
+                >
+                  <Grid item md={2}>
+                    <img src={logo} />
+                    <img src={logoText} className={classes.appHeading} />
+                  </Grid>
 
-          <Toolbar className={classes.name}>
-            <Grid justifyContent='space-around' alignItems='center' container >
-              <Link to="/User/Pages/homepage">
-                <Grid item >
-                  <img src={logo} />
-                  <img src={logoText} className={classes.appHeading} />
+                  <Grid item md={10}>
+                    <Box className={classes.menu}>
+                      <Typography className={classes.navLink}>
+                        <Link className={classes.link}>Book</Link>
+                        <Link className={classes.link}>Find racqys</Link>
+                        <Link className={classes.link}>Explore</Link>
+                      </Typography>
+                      <Box className={classes.rightBtns}>
+                      <Link to="/User/Pages/SeeClub/DownloadApp/" style={{textDecoration:'none'}}>
+                        <Button
+                          onClick={handleClickDownloadApp}
+                          variant="outlined"
+                          className={classes.lineButton}
+                        >
+                          Download app
+                        </Button>
+                        </Link>
+                        <Button onClick={handleClickOpenDialogBox}>
+                          <img src={loginLogo} className={classes.signIn} />
+                        </Button>
+                      </Box>
+                    </Box>
+                  </Grid>
+
+                  {/* <Grid item xs={2}>
+                    <Button
+                      onClick={handleClickDownloadApp}
+                      variant="outlined"
+                      className={classes.lineButton}
+                    >
+                      Download app
+                    </Button>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Button onClick={handleClickOpenDialogBox}>
+                      <img src={loginLogo} className={classes.signIn} />
+                    </Button>
+                  </Grid> */}
                 </Grid>
-              </Link>
-
-              <Grid item xs={6}>
-                <Typography className={classes.navLink}>
-                  <Link className={classes.link}>Book</Link>
-                  <Link className={classes.link}>Find racqys</Link>
-                  <Link className={classes.link}>Explore</Link>
-                </Typography>
-              </Grid>
-
-              <Grid item xs={2}>
-                <Button variant='outlined' className={classes.lineButton}>Download app</Button>
-              </Grid>
-              <Grid item xs={2}>
-                <img src={loginLogo} className={classes.signIn} />
-              </Grid>
-            </Grid>
-          </Toolbar>
-
-        </AppBar>
+              </Toolbar>
+            </AppBar>
+          </ThemeProvider>
+        </Container>
       </div>
 
-    </ThemeProvider>
+      {/* Sign In DialogBox */}
+      <DialogBox
+        open={openDialogBox}
+        handleClose={handleCloseDialogBox}
+        DialogTitle=""
+        subTitle=""
+        content={<SignIn setOpenDialogBox={setOpenDialogBox} />}
+        topLogo=""
+        dialog_custom_style={classes.dialog_custom_style}
+      />
+    </>
   );
 }
+
+

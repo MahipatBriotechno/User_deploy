@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
 
   root: {
     flexGrow: 1,
-    marginTop:'40px'
   },
   paper: {
     padding: theme.spacing(2),
@@ -59,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 22,
     color: "#0a3133",
     margin: "0 0 10px",
+    cursor: 'pointer'
   },
   secondLine: {
     display: "flex",
@@ -96,6 +96,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 15,
+    cursor: 'pointer',
   },
 
   time_item: {
@@ -157,6 +158,19 @@ const useStyles = makeStyles((theme) => ({
     padding: "10px",
     borderRadius: "6px",
   },
+
+  dialog_custom_style: {
+    padding: '30px 0',
+    "& #alert-dialog-title, .sc-bczRLJ": {
+    padding: '30px 0',
+
+    },
+  },
+
+
+
+
+
 }));
 
 

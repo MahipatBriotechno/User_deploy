@@ -1,15 +1,15 @@
 import React from 'react'
-// import AppBarNew from '../../Component/Appbar'
-// import Footer from '../../Component/Footer'
-// import img1 from '../../../../images/Main/downloadapp_image.png';
-// import playstore from '../../../../images/Playstore/download-on-the-app-store-apple-logo-svgrepo-com.svg'
-// import Logo from '../../../../images/LOGO/Group_2639.svg'
+import AppBarNew from '../../Component/Appbar'
+import Footer from '../../Component/Footer'
+import img1 from '../../../../images/Main/downloadapp_image.png';
+import playstore from '../../../../images/Playstore/download-on-the-app-store-apple-logo-svgrepo-com.svg'
+import Logo from '../../../../images/LOGO/Group_2639.svg'
 import './DownloadApp.css'
 
 function DownloadApp() {
   return (
     <div>
-      {/* <AppBarNew />
+      <AppBarNew />
       <img src={img1} className="img1" />
       <div className='img2'> <img src={Logo} style={{
         width: '100px',
@@ -19,7 +19,7 @@ function DownloadApp() {
         <p className='line1'>Racqy: Find New Activities & Friends</p>
       </div>
       <img src={playstore} className="playstore" /><br />
-      <Footer /> */}
+      <Footer />
     </div>
   )
 }

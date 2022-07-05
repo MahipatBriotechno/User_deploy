@@ -14,13 +14,14 @@ import AddtoFavourites from "../../../../images/icon/AddtoFavourites.svg";
 import favourite from "../../../../images/icon/favourite.svg";
 import location from "../../../../images/icon/location.svg";
 import clock from "../../../../images/icon/clock.svg";
+import gtg_logo from "../../../../images/logo/gtg-logo.svg";
 import DropdownMenu from "../../Component/DropdownMenu";
 import VerticalTabsCalender from "../../Component/VerticalTabsCalender/VerticalTabsCalender";
 import AutoCompleteBox from "../../Component/AutoCompleteBox";
 import { Button } from "@material-ui/core";
 import "./radioCustom.css";
 import Data_SearchClub from "./Data_SearchClub";
-
+import { Link as NavLink } from 'gatsby'
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -30,7 +31,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Pagination from "@material-ui/lab/Pagination";
 import DialogBox from "../../Component/DialogBox/DialogBox";
 import CheckoutContent from "./CheckoutContent/CheckoutContent";
-
+// import { useNavigate } from "react-router-dom";
 
 
 const Data_Inomhus_Utomhus = [{ label: "Inomhus Utomhus" }];
@@ -86,6 +87,12 @@ const SearchClub = () => {
     setRowIndex(index_row);
   };
 
+  // let navigate = useNavigate();
+  function handleClickNavigate() {
+    // navigate("/seeClub");
+  }
+  
+
   return (
     <>
       {/* Filters  */}
@@ -135,14 +142,21 @@ const SearchClub = () => {
               <Grid container spacing={3} className={classes.time_item}>
                 <Grid item xs={5}>
                   <div className={classes.left}>
+                    <NavLink to="../SeeClub/SeeClub/">
                     <div
+                     
                       className={classes.smallBox}
                       style={{ backgroundColor: data.bg }}
                     >
                       <img src={data.image} />
                     </div>
+                    </NavLink>
+                    
                     <div>
-                      <h5 className={classes.title}>{data.title}</h5>
+                      <NavLink to="../SeeClub/SeeClub/" style={{textDecoration:'none'}}>
+                      <h5  className={classes.title}>{data.title}</h5>
+                      </NavLink>
+                      
                       <div className={classes.secondLine}>
                         <div className={classes.location}>
                           <img src={location} width={15} />{" "}
@@ -326,7 +340,7 @@ const SearchClub = () => {
       </div>
 
       {/* Book Now DialogBox */}
-      <DialogBox open={openDialogBox} handleClose={handleCloseDialogBox} DialogTitle="" subTitle="" content={<CheckoutContent />} />
+      <DialogBox open={openDialogBox} handleClose={handleCloseDialogBox} DialogTitle="" subTitle="" content={<CheckoutContent />} dialog_custom_style={classes.dialog_custom_style}  />
     </>
   );
 };

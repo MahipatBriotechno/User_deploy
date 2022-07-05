@@ -14,13 +14,14 @@ import PressKit from "./PressKit/PressKit";
 import Privacy from "./Privacy/Privacy";
 import SearchClubMain from "./SearchClub";
 import SearchClub from "./SearchClub/SearchClub";
+import SeeClub from './SeeClub/SeeClub'
 import Term from "./Term/Term";
 export default function HomePage() {
   const NotFound = () => <p>Sorry, nothing here.</p>;
   return (
 
     <div style={{ background: 'white' }}>
-      <Appbar />
+      <Appbar/>
       <Router  >
         <Home path="User/Pages/*" />
         <Match path="User/Pages/SearchClub/">
@@ -50,6 +51,9 @@ export default function HomePage() {
         </Match>
         <Match path="User/Pages/Help/Help">
           <Help />
+        </Match>
+        <Match path="User/Pages/SeeClub/SeeClub">
+          <SeeClub />
         </Match>
         <NotFound default />
       </Router>

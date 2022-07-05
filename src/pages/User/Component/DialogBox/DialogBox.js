@@ -65,6 +65,7 @@ const DialogBox = (props) => {
         </h2>
         {subTitle && <p>{subTitle}</p>}
         <CloseIcon className={classes.close} onClick={handleClose} />
+        {content}
       </Box>
       </Dialog>
     </div>
