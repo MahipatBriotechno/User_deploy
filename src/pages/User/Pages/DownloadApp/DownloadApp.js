@@ -3,7 +3,7 @@ import AppBarNew from '../../Component/Appbar'
 import Footer from '../../Component/Footer'
 import img1 from '../../../../images/Main/downloadapp_image.png';
 import playstore from '../../../../images/Playstore/download-on-the-app-store-apple-logo-svgrepo-com.svg'
-import Logo from '../../../../images/LOGO/Group_2639.svg'
+import Logo from '../../../../images/logo/Group_2639.svg'
 import './DownloadApp.css'
 
 function DownloadApp() {
