@@ -6,13 +6,8 @@
 
 module.exports = {
   /* Your site config here */
+  pathPrefix: "/User_deploy",
   plugins: [
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pages`,
-        path: `${__dirname}/src/images/`,
-      },
-    },
+   
   ],
 }
