@@ -73,12 +73,13 @@ const Home = () => {
             label="Klubb, postkod, stad…"
             options={DATA_AutoComplete}
           />
-          <NavLink to="/User/Pages/SearchClub/" className={classes.link} style={{textDecoration:'none',height:50}}>
+          <NavLink to="/User/Pages/SearchClub/" className={classes.link} style={{textDecoration:'none'}}>
             <Button
               className={classes.btn_primary}
               onClick={handleClickNavigate}
               variant="containedPrimary"
               color="primary"
+              style={{height:50}}
               // autoFocus
               // disabled
             >
