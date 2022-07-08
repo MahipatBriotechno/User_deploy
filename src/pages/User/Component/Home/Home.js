@@ -19,10 +19,13 @@ import {
   styleFunctionSx,
 } from "@material-ui/system";
 import styled, { ThemeProvider } from "styled-components";
-import SelectWithImage from "../../Component/SelectWithImage/SelectWithImage";
+
 import VerticalTabsCalender from "../VerticalTabsCalender/VerticalTabsCalender";
 import DropdownMenu from "../DropdownMenu";
 import { Link as NavLink } from 'gatsby'
+import SelectWithImage from "../SelectWithImage/SelectWithImage";
+
+
 const styleFunction = styleFunctionSx(compose(spacing, palette));
 const Box = styled.div(styleFunction);
 
@@ -33,9 +36,15 @@ const Box = styled.div(styleFunction);
 //   },
 // });
 
+
 const Home = () => {
   const classes = useStyles();
+  
 
+
+  function handleClickNavigate() {
+    
+  }
 
   const DATA_AutoComplete = [
     { title: "Stockholms stad 1" },
@@ -64,18 +73,18 @@ const Home = () => {
             label="Klubb, postkod, stad…"
             options={DATA_AutoComplete}
           />
-          <NavLink to="/User/Pages/SearchClub/" className={classes.link}>
+          <NavLink to="/User/Pages/SearchClub/" className={classes.link} style={{textDecoration:'none',height:50}}>
             <Button
               className={classes.btn_primary}
-              // onClick={handleDialogClose}
+              onClick={handleClickNavigate}
               variant="containedPrimary"
               color="primary"
-              
-
+              // autoFocus
+              // disabled
             >
               Sök
             </Button>
-          </NavLink>
+            </NavLink>
         </Box>
       </>
     );
@@ -86,7 +95,7 @@ const Home = () => {
       <Box className={classes.home_bg}>
         <Box className={classes.dialog_like}>
           <Box sx={{ padding: "30px 30px 0px" }} id="alert-dialog-title">
-            <h2 style={{ fontSize: 24, fontWeight: 500, marginBottom: 15 }}>
+            <h2 style={{ fontSize: 24, fontWeight: 500, marginBottom: 15, fontFamily: 'dm sans' }}>
               Hej, boka en bana här!
             </h2>
             <p>Hitta klubbar och tillgängliga tider.</p>
@@ -94,7 +103,6 @@ const Home = () => {
           <DialogBoxContent />
         </Box>
       </Box>
-
     </div>
   );
 };

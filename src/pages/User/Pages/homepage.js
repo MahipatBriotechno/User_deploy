@@ -27,8 +27,7 @@ export default function HomePage() {
         <Match path="User/Pages/SearchClub/">
           <SearchClubMain />
         </Match>
-
-        <Match path="User/Pages/About/About">
+         <Match path="User/Pages/About/About">
           <About />
         </Match>
         <Match path="User/Pages/PressKit/PressKit">

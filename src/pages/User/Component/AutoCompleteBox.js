@@ -11,7 +11,12 @@ const filter = createFilterOptions();
 const useStyles = makeStyles((theme) => ({
   btn_AutoComp: {
     backgroundColor: "#f7f7f7",
+    // backgroundColor: "red",
     borderRadius: 4,
+    height: '52px',
+    "& .MuiOutlinedInput-root": {
+      height: "52px",
+    },
     "& .MuiOutlinedInput-notchedOutline": {
       borderColor: "transparent",
     },
@@ -19,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
       borderColor: "#209ca2",
       borderWidth: 1,
     },
+    
     "& .MuiAutocomplete-option": {
       "&:focus": {
         backgroundColor: "#209ca2",
@@ -83,7 +89,7 @@ const AutoCompleteBox = (props) => {
         return option.title;
       }}
       renderOption={(option) => option.title}
-      style={{ width: "350px" }}
+      style={{ width: "350px",  }}
       freeSolo
       renderInput={(params) => (
         <TextField

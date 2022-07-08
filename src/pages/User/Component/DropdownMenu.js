@@ -64,7 +64,7 @@ const useStyles = makeStyles({
     alignItems: 'center',
     cursor: 'pointer',
     backgroundColor: '#fff',
-    minHeight: '42px',
+    minHeight: '52px',
   },
   active: {
     border: "1px solid #209ca2",

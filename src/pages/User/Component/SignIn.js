@@ -8,13 +8,27 @@ import SelectWithIcon from "./SelectWithIcon/SelectWithIcon";
 import flagIcon from "../../../images/icon/flagIcon.svg";
 import TextField from "@material-ui/core/TextField";
 import OtpInput from "react-otp-input";
-
 import { Link } from "gatsby";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     width: "500px",
+
+    // Input Focus For MUI
+    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#209ca2",
+      borderWidth: "1px",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& :hover": {
+        borderColor: "#209ca2",
+        borderWidth: "1px",
+      },
+    },
+    "& .MuiFormLabel-root.Mui-focused": {
+      color: "#000",
+    },
   },
   paper: {
     padding: theme.spacing(2),
@@ -106,10 +120,10 @@ const SignIn = (props) => {
     setStep(2);
   };
 
-  
+
   function handleClickNavigate() {
     setOpenDialogBox(false);
-    
+   
   }
 
   return (
@@ -249,8 +263,8 @@ const SignIn = (props) => {
                     variant="outlined"
                   />
                 </form>
-             <Link to="/User/Pages/SeeClub/SeeClub/" style={{textDecoration:'none'}}>
-             <Button
+                <Link to="/User/Pages/SeeClub/SeeClub/" style={{textDecoration:'none'}}>
+                <Button
                   className={`${classes.btn_primary} btn_full`}
                   onClick={handleClickNavigate}
                   variant="containedPrimary"
@@ -261,8 +275,7 @@ const SignIn = (props) => {
                 >
                   Skapa konto
                 </Button>
-             </Link>
-                
+                </Link>
               </Box>
             </Grid>
           </Grid>

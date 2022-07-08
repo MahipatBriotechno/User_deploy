@@ -3,10 +3,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 import logo from "../../../images/logo.svg";
 
 import logoText from "../../../images/name_logo.svg";
 import "../../../index.css";
+import profile from "../../../images/icon/profile.svg";
 
 import { Button, Grid } from "@material-ui/core";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
@@ -19,14 +22,18 @@ import loginLogo from "../../../images/sign_in.svg";
 import { Select, SvgIcon, Box } from "@material-ui/core";
 import DialogBox from "./DialogBox/DialogBox";
 import SignIn from "./SignIn";
-import {Link} from 'gatsby'
 // import { useNavigate } from "react-router-dom";
+import {Link} from 'gatsby'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     fontFamily: "DM Sans",
     width: "100%",
+
+    "& .MuiAppBar-colorPrimary": {
+      backgroundColor: '#fff'
+    }
   },
   appBar: {
     backgroundColor: "#FFFFFF",
@@ -54,6 +61,10 @@ const useStyles = makeStyles((theme) => ({
     // marginRight: "15px",
     // paddingRight: "15px",
   },
+  active: {
+    fontWeight: '600',
+    color: '#211f1f !important'
+  },
   navLink: {
     color: "#000000",
     // paddingLeft: "110px",
@@ -65,6 +76,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#a5a5a5",
     textDecoration: "unset",
     cursor: "pointer",
+    fontFamily: "DM Sans",
   },
   signIn: {
     height: "25px",
@@ -111,6 +123,7 @@ export default function AppBarNew() {
   const classes = useStyles();
 
   const [openDialogBox, setOpenDialogBox] = React.useState(false);
+  const [isActive, setIsActive] = React.useState('');
 
   const handleClickOpenDialogBox = () => {
     setOpenDialogBox(true);
@@ -120,10 +133,17 @@ export default function AppBarNew() {
   };
 
   // let navigate = useNavigate();
-  function handleClickDownloadApp() {
-    // navigate("/downloadApp");
-    // alert('hello')
-  }
+ 
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <>
@@ -132,29 +152,31 @@ export default function AppBarNew() {
           <ThemeProvider theme={theme}>
             <AppBar elevation={0} position="static" className={classes.appBar}>
               <Toolbar className={classes.name}>
-                <Grid
-                  // justifyContent="space-around"
-                  alignItems="center"
-                  container
-                >
+                <Grid alignItems="center" container>
                   <Grid item md={2}>
-                    <img src={logo} />
-                    <img src={logoText} className={classes.appHeading} />
+                    <Link
+                      className={classes.link}
+                      to="/User/Pages/homepage"
+                    >
+                      <img src={logo} />
+                      <img src={logoText} className={classes.appHeading} />
+                    </Link>
                   </Grid>
 
                   <Grid item md={10}>
                     <Box className={classes.menu}>
                       <Typography className={classes.navLink}>
-                        <Link className={classes.link}>Book</Link>
-                        <Link className={classes.link}>Find racqys</Link>
+                        <Link to="#" className={classes.link}>Book</Link>
+                        <Link to="/User/Pages/FindRacqys/FindRacqys" style={{textDecoration:'none'}} className={`${classes.link} ${isActive == 'findRacqys' && classes.active }` } onClick={()=>{ setIsActive('findRacqys')}} >Find racqys</Link>
                         <Link className={classes.link}>Explore</Link>
                       </Typography>
                       <Box className={classes.rightBtns}>
-                      <Link to="/User/Pages/SeeClub/DownloadApp/" style={{textDecoration:'none'}}>
+                        <Link to="/User/Pages/SeeClub/DownloadApp/" style={{textDecoration:'none'}}>
                         <Button
-                          onClick={handleClickDownloadApp}
+                          // onClick={handleClickDownloadApp}
+                          onClick={()=>{ setIsActive('downloadApp')}}
                           variant="outlined"
-                          className={classes.lineButton}
+                          className={`${classes.lineButton} ${isActive == 'downloadApp' && classes.active }`}
                         >
                           Download app
                         </Button>
@@ -162,24 +184,33 @@ export default function AppBarNew() {
                         <Button onClick={handleClickOpenDialogBox}>
                           <img src={loginLogo} className={classes.signIn} />
                         </Button>
+
+                        <Button
+                          aria-controls="simple-menu"
+                          aria-haspopup="true"
+                          onClick={handleClick}
+                        >
+                          <img src={profile} className={classes.signIn} /> Jakob
+                          spade
+                        </Button>
+                        <Menu
+                          id="simple-menu"
+                          anchorEl={anchorEl}
+                          keepMounted
+                          open={Boolean(anchorEl)}
+                          onClose={handleClose}
+                        >
+                          <Link to="/User/Pages/MyProfile/MyProfile/" style={{textDecoration:'none',color:'#000000d9'}}>
+                          
+                          <MenuItem onClick={()=>{ handleClose()}}>
+                            My Profile
+                          </MenuItem>
+                          </Link>
+                          <MenuItem onClick={handleClose}>Logout</MenuItem>
+                        </Menu>
                       </Box>
                     </Box>
                   </Grid>
-
-                  {/* <Grid item xs={2}>
-                    <Button
-                      onClick={handleClickDownloadApp}
-                      variant="outlined"
-                      className={classes.lineButton}
-                    >
-                      Download app
-                    </Button>
-                  </Grid>
-                  <Grid item xs={2}>
-                    <Button onClick={handleClickOpenDialogBox}>
-                      <img src={loginLogo} className={classes.signIn} />
-                    </Button>
-                  </Grid> */}
                 </Grid>
               </Toolbar>
             </AppBar>
@@ -200,5 +231,3 @@ export default function AppBarNew() {
     </>
   );
 }
-
-

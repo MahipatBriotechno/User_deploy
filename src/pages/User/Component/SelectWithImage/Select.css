@@ -8,6 +8,7 @@
   position: relative;
   min-width: 220px;
   border-radius: 4px;
+  height: 52px;
 }
 
 .select__label {

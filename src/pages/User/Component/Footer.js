@@ -46,8 +46,10 @@ const useStyles = makeStyles((theme) => ({
   },
   secondCol: {
     fontSize: "15px",
-
+    fontFamily: "DM Sans",
     alignItems: "center",
+    color: '#979d9d',
+    marginBottom: '8px'
   },
   footerSocial: {
     width: "40px",

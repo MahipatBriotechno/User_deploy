@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
 
   root: {
     flexGrow: 1,
+  
   },
   paper: {
     padding: theme.spacing(2),
@@ -35,6 +36,15 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     gap: 20,
     padding: "0px 0 50px",
+    "& .select, .makeStyles-btn_AutoComp-44": {
+      backgroundColor: '#fff !important',
+      border: '1px solid #c4c4c4',
+    },
+    "& .MuiButton-containedPrimary": {
+      height: '52px',
+    }
+
+
   },
   btn_primary: {
     backgroundColor: "#209ca2 !important",
