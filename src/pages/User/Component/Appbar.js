@@ -120,6 +120,7 @@ const userMenu = [
 ]
 
 export default function AppBarNew() {
+  
   const classes = useStyles()
 
   const [openDialogBox, setOpenDialogBox] = React.useState(false)
@@ -168,18 +169,14 @@ const Logout=()=>
                   <Grid item md={10}>
                     <Box className={classes.menu}>
                       <Typography className={classes.navLink}>
-                        <Link to="#" className={classes.link}>
+                        <Link to="/User/Pages/SearchClub/" className={classes.link} style={{textDecoration: "none"}}>
                           Book
                         </Link>
                         <Link
                           to="/User/Pages/FindRacqys/FindRacqys"
-                          style={{ textDecoration: "none" }}
-                          className={`${classes.link} ${
-                            isActive == "findRacqys" && classes.active
-                          }`}
-                          onClick={() => {
-                            setIsActive("findRacqys")
-                          }}
+                          className={classes.link}
+                          style={{textDecoration: "none"}}
+                      
                         >
                           Find racqys
                         </Link>

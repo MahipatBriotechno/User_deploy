@@ -31,6 +31,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Pagination from "@material-ui/lab/Pagination";
 import DialogBox from "../../Component/DialogBox/DialogBox";
 import CheckoutContent from "./CheckoutContent/CheckoutContent";
+import AppBarNew from "../../Component/Appbar";
 // import { useNavigate } from "react-router-dom";
 
 
@@ -96,6 +97,7 @@ const SearchClub = () => {
   return (
     <>
       {/* Filters  */}
+     
       <div className={classes.root} style={{ backgroundColor: "#f9fafc" }}>
         <Grid container spacing={3}>
           <Container>
