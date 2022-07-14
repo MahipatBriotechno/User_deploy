@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="189.382" height="195.493" viewBox="0 0 189.382 195.493">
+  <defs>
+    <filter id="Union_110" x="0" y="0" width="189.382" height="195.493" filterUnits="userSpaceOnUse">
+      <feOffset dy="20" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feFlood flood-color="#414d5c" flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_2810" data-name="Group 2810" transform="translate(-957.534 -533.741)">
+    <g id="Group_2561" data-name="Group 2561" transform="translate(1017.534 573.741)">
+      <g transform="matrix(1, 0, 0, 1, -60, -40)" filter="url(#Union_110)">
+        <path id="Union_110-2" data-name="Union 110" d="M22.626,70.62,10.22,59.184a.991.991,0,0,1-.08-.086,34.46,34.46,0,0,1,0-48.822c.106-.113.218-.219.324-.331A34.569,34.569,0,0,1,59.082,59.1L46.52,70.678a17.156,17.156,0,0,1-23.893-.058Z" transform="translate(60 40)" fill="#fff"/>
+      </g>
+      <g id="Group_2420" data-name="Group 2420" transform="translate(21.133 12.46)">
+        <path id="primary" d="M12,3V33.165M12,5.155V18.083l12.928-6.464Z" transform="translate(0.928 -3)" fill="none" stroke="#7a41ed" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+        <path id="primary-2" data-name="primary" d="M18.928,13C11.8,13,6,16.857,6,21.619s5.8,8.619,12.928,8.619,12.928-3.857,12.928-8.619a7.735,7.735,0,0,0-4.309-6.464" transform="translate(-6 8.547)" fill="none" stroke="#7a41ed" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </g>
+    </g>
+  </g>
+</svg>

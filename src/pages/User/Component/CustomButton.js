@@ -1,10 +1,11 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core'
+import { ButtonColor } from '../Pages/GlobalTheme';
 
 const useStyles = makeStyles((theme) => ({
     customButton: {
-        background: "#209CA2",
+        background: ButtonColor,
         border: 0,
         borderRadius: 5,
         fontFamily: 'DM Sans',

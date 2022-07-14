@@ -32,6 +32,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import { DataBanks, SportMans } from "./Data_SeeProfile";
 import { Link } from "gatsby";
+import GoogleMap from "../../Component/GoogleMap";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -122,7 +123,7 @@ const SeeProfile = () => {
     <div className={classes.root_main}>
       <Grid item xs={12}>
         <Box className={classes.mapBox}>
-          <img src={map} />
+         <GoogleMap/>
         </Box>
         <Box className={classes.mapBottomLogo}>
           <div className="logoBox">

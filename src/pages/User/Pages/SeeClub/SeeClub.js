@@ -15,6 +15,7 @@ import gtg_logo from "../../../../images/logo/gtg-logo.svg"
 import location from "../../../../images/icon/location.svg"
 import RightSidebar from "./RightSidebar"
 import Shedule from "../../../Shedule/index"
+import GoogleMap from "../../Component/GoogleMap"
 const SeeClub = () => {
   const classes = useStyles()
 
@@ -23,7 +24,7 @@ const SeeClub = () => {
       <Appbar/>
       <Grid item xs={12}>
         <Box className={classes.mapBox}>
-          <img src={map} />
+          <GoogleMap/>
         </Box>
         <Box className={classes.mapBottomLogo}>
           <div className="logoBox">

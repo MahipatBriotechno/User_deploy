@@ -1,5 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import bgimg from "../../../../images/bg/homebackgroud.png";
+import { ButtonColor } from "../../Pages/GlobalTheme";
 
 const useStyles = makeStyles({
   home_bg: {
@@ -20,7 +21,7 @@ const useStyles = makeStyles({
     borderLeft: "solid 5px #209ca2",
   },
   btn_primary: {
-    backgroundColor: "#209ca2 !important",
+    backgroundColor: `${ButtonColor} !important`,
     color: "#fff !important",
     minWidth: "160px",
   },

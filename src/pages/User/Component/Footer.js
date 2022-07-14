@@ -2,7 +2,7 @@ import React from "react";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Grid, Typography, Button, ButtonProps } from "@material-ui/core";
-import footerLogo from "../../../images/footer_logo.png";
+import footerLogo from "../../../images/footerimage.jpeg";
 import CustomButton from "./CustomButton";
 import fb from "../../../images/fb.svg";
 import insta from "../../../images/insta.svg";

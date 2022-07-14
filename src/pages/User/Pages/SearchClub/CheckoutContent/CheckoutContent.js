@@ -1,69 +1,74 @@
-import React, { useState } from "react";
-import { useStyles } from "./CheckoutContent.style";
-import Grid from "@material-ui/core/Grid";
-import { Box, Button } from "@material-ui/core";
-import info from "../../../../../images/icon/info.svg";
-import person from "../../../../../images/icon/person.svg";
-import users from "../../../../../images/icon/users.svg";
-import Tennis from "../../../../../images/icon/Tennis.svg";
-import calander from "../../../../../images/icon/calander.svg";
-import calander_mmyy from "../../../../../images/icon/calendar-mm-yy.svg";
-import lock from "../../../../../images/icon/lock.svg";
-import flagIcon from "../../../../../images/icon/flagIcon.svg";
-import clock from "../../../../../images/icon/clock.svg";
-import credit_card from "../../../../../images/icon/credit-card.svg";
-import credit_card_input from "../../../../../images/icon/credit-card-input.svg";
-import visa_card from "../../../../../images/icon/visa_card.svg";
-import Mastercard from "../../../../../images/icon/Mastercard.svg";
-import AMEX_card from "../../../../../images/icon/AmExIcon.svg";
-import adyen from "../../../../../images/icon/adyen.svg";
-import Swish_payment from "../../../../../images/icon/Swish_payment.svg";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import Collapse from "@material-ui/core/Collapse";
-import PeopleIcon from "@material-ui/icons/People";
-import AddIcon from "@material-ui/icons/Add";
-import TextField from "@material-ui/core/TextField";
-import CloseIcon from "@material-ui/icons/Close";
-import SelectWithIcon from "../../../Component/SelectWithIcon/SelectWithIcon";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import clsx from "clsx";
-import RadioLoggainContent from "./RadioLoggainContent";
-import { Link } from "gatsby";
+import React, { useState } from "react"
+import { useStyles } from "./CheckoutContent.style"
+import Grid from "@material-ui/core/Grid"
+import { Box, Button } from "@material-ui/core"
+import info from "../../../../../images/icon/info.svg"
+import person from "../../../../../images/icon/person.svg"
+import users from "../../../../../images/icon/users.svg"
+import Tennis from "../../../../../images/icon/Tennis.svg"
+import calander from "../../../../../images/icon/calander.svg"
+import calander_mmyy from "../../../../../images/icon/calendar-mm-yy.svg"
+import lock from "../../../../../images/icon/lock.svg"
+import flagIcon from "../../../../../images/icon/flagIcon.svg"
+import clock from "../../../../../images/icon/clock.svg"
+import credit_card from "../../../../../images/icon/credit-card.svg"
+import credit_card_input from "../../../../../images/icon/credit-card-input.svg"
+import visa_card from "../../../../../images/icon/visa_card.svg"
+import Mastercard from "../../../../../images/icon/Mastercard.svg"
+import AMEX_card from "../../../../../images/icon/AmExIcon.svg"
+import adyen from "../../../../../images/icon/adyen.svg"
+import Swish_payment from "../../../../../images/icon/Swish_payment.svg"
+import ListItem from "@material-ui/core/ListItem"
+import ListItemIcon from "@material-ui/core/ListItemIcon"
+import ListItemText from "@material-ui/core/ListItemText"
+import Collapse from "@material-ui/core/Collapse"
+import PeopleIcon from "@material-ui/icons/People"
+import AddIcon from "@material-ui/icons/Add"
+import TextField from "@material-ui/core/TextField"
+import CloseIcon from "@material-ui/icons/Close"
+import SelectWithIcon from "../../../Component/SelectWithIcon/SelectWithIcon"
+import InputAdornment from "@material-ui/core/InputAdornment"
+import clsx from "clsx"
+import RadioLoggainContent from "./RadioLoggainContent"
+import { Link } from "gatsby"
+import flag from "../../../../../images/flagIcon.svg"
 // import { useNavigate } from "react-router-dom";
-
 
 const DATA_PRICE = [
   { label: "SEK", value: 1, icon: flagIcon },
   { label: "SEK", value: 2, icon: flagIcon },
   { label: "SEK", value: 3, icon: flagIcon },
-];
+]
+const DATA_CODE = [
+  { label: "+46", icon: flag, value: 1 },
+  { label: "+56", icon: flag, value: 2 },
+  { label: "+46", icon: flag, value: 3 },
+]
 
 const CheckoutContent = () => {
-  const classes = useStyles();
+  const classes = useStyles()
 
-  const [openCollaps, setOpenCollaps] = React.useState(false);
-  const [layout, setLayout] = useState(false);
-  const [selected, setSelected] = useState("");
+  const [openCollaps, setOpenCollaps] = React.useState(false)
+  const [layout, setLayout] = useState(false)
+  const [selected, setSelected] = useState("")
 
   // let navigate = useNavigate();
   function handleClickNavigate() {
     // navigate("/bookingConfirmed");
   }
 
-  const changeHandler = (e) => {
-    setSelected(e.target.value);
-  };
+  const changeHandler = e => {
+    setSelected(e.target.value)
+  }
 
-  console.log("selected__", selected);
+  console.log("selected__", selected)
 
   const handleClickCollaps = () => {
-    setOpenCollaps(!openCollaps);
-  };
+    setOpenCollaps(!openCollaps)
+  }
 
-  const SportDetailList = (props) => {
-    const { image, title, subtitle, option } = props;
+  const SportDetailList = props => {
+    const { image, title, subtitle, option } = props
     return (
       <Box className="list">
         <img src={image} />
@@ -73,12 +78,12 @@ const CheckoutContent = () => {
           {option}
         </div>
       </Box>
-    );
-  };
+    )
+  }
 
-  const isEnabled = 6;
+  const isEnabled = 6
 
-  const RadioButton = (props) => {
+  const RadioButton = props => {
     const {
       label,
       smallLable,
@@ -88,7 +93,7 @@ const CheckoutContent = () => {
       cardsimg,
       lableImg,
       greenText,
-    } = props;
+    } = props
 
     return (
       <Box
@@ -125,8 +130,8 @@ const CheckoutContent = () => {
           </div>
         )}
       </Box>
-    );
-  };
+    )
+  }
 
   return (
     <div className={classes.root}>
@@ -346,7 +351,19 @@ const CheckoutContent = () => {
                         <span className="sublable">
                           Direkt i mobilen med BankID
                         </span>
-                        Swish
+                       <div style={{display:'flex',alignItems:'center'}}>
+                       <SelectWithIcon
+                          data={DATA_CODE}
+                          placeholder="Select Location"
+                          style={{border:'1px solid'}}
+                        />
+                        <TextField
+                            id="outlined-basic"
+                            placeholder="Telephonnumber"
+                            variant="outlined"
+                            
+                          />
+                       </div>
                       </>
                     }
                     cardsimg={
@@ -407,18 +424,19 @@ const CheckoutContent = () => {
                 </Box>
               </Box>
             )}
-
-            
           </Box>
           <Box className={classes.bottom_btn_content}>
-              <Box>
-                <h2 className="title">250 kr</h2>
-                <span className="subtitle">Att betala (inkl. moms)</span>
-              </Box>
-              <Link to="/User/Pages/BookingConfirmed/BookingConfirmed/" style={{textDecoration:'none'}}>
+            <Box>
+              <h2 className="title">250 kr</h2>
+              <span className="subtitle">Att betala (inkl. moms)</span>
+            </Box>
+            <Link
+              to="/User/Pages/BookingConfirmed/BookingConfirmed/"
+              style={{ textDecoration: "none" }}
+            >
               <Button
                 className={`${classes.btn_primary} btn_full`}
-                  onClick={handleClickNavigate}
+                onClick={handleClickNavigate}
                 variant="containedPrimary"
                 color="primary"
                 // autoFocus
@@ -426,15 +444,15 @@ const CheckoutContent = () => {
               >
                 Slutför bokning
               </Button>
-              </Link>
-              <Box className="footer">
-                <span>Säker betalning med</span> <img src={adyen} />
-              </Box>
+            </Link>
+            <Box className="footer">
+              <span>Säker betalning med</span> <img src={adyen} />
             </Box>
+          </Box>
         </Grid>
       </Grid>
     </div>
-  );
-};
+  )
+}
 
-export default CheckoutContent;
+export default CheckoutContent

@@ -9,6 +9,7 @@ import flagIcon from "../../../images/icon/flagIcon.svg";
 import TextField from "@material-ui/core/TextField";
 import OtpInput from "react-otp-input";
 import { Link } from "gatsby";
+import { ButtonColor } from "../Pages/GlobalTheme";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,10 +56,13 @@ const useStyles = makeStyles((theme) => ({
 
   btn_primary: {
     width: "100%",
-    backgroundColor: "#209ca2",
+    backgroundColor: `${ButtonColor}`,
     height: "45px",
     marginTop: "10px",
     textTransform: "capitalize",
+    "&:hover":{
+      backgroundColor:`${ButtonColor}`
+    }
   },
   Footer: {
     backgroundColor: "#f4f5f7",
@@ -123,6 +127,8 @@ const SignIn = (props) => {
 
   function handleClickNavigate() {
     setOpenDialogBox(false);
+    localStorage.setItem('IsLogin',true)
+    window.location.href="/User/Pages/SeeClub/SeeClub/"
    
   }
 
@@ -263,7 +269,7 @@ const SignIn = (props) => {
                     variant="outlined"
                   />
                 </form>
-                <Link to="/User/Pages/SeeClub/SeeClub/" style={{textDecoration:'none'}}>
+                {/* <Link to="/User/Pages/SeeClub/SeeClub/" style={{textDecoration:'none'}}> */}
                 <Button
                   className={`${classes.btn_primary} btn_full`}
                   onClick={handleClickNavigate}
@@ -275,7 +281,7 @@ const SignIn = (props) => {
                 >
                   Skapa konto
                 </Button>
-                </Link>
+                {/* </Link> */}
               </Box>
             </Grid>
           </Grid>

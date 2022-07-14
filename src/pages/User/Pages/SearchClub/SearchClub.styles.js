@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { ButtonColor } from "../GlobalTheme";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -47,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 
   },
   btn_primary: {
-    backgroundColor: "#209ca2 !important",
+    backgroundColor: `${ButtonColor} !important`,
     color: "#fff !important",
     minWidth: "160px",
     minHeight: "42px",

@@ -19,9 +19,8 @@ import dot from "../../../../images/icon/dot.svg";
 import calander from "../../../../images/icon/calander.svg";
 import profile from "../../../../images/icon/profile.svg";
 import card_bg from "../../../../images/bg/card_bg.png";
-
+import {Loader, LoaderOptions} from 'google-maps';
 import RightSidebar from "./RightSidebar";
-
 import PropTypes from "prop-types";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
@@ -29,7 +28,9 @@ import Typography from "@material-ui/core/Typography";
 import { SportMans } from "./Data_SportMans";
 import {Link} from 'gatsby'
 // import { useNavigate } from "react-router-dom";
-
+import {SnazzyInfoWindow} from 'snazzy-info-window'
+import GoogleMap from "../../Component/GoogleMap";
+// import "snazzy-info-window.min.css"
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -76,6 +77,31 @@ const DownloadApp = () => {
   function navigateSeeProfile() {
     // navigate("/seeProfile");
   }
+React.useEffect(()=>{
+  // const loader = new Loader('AIzaSyAKe-qvRqyBHmLD53jYiRhRdETQUmBRWZI');
+  //   const google = loader.load();
+  //   var map = new google.maps.Map(document.getElementById('map'), {
+  //       zoom: 11,
+  //       center: new google.maps.LatLng(40.72, -74)
+  //   });
+
+  //   var marker = new google.maps.Marker({
+  //       map: map,
+  //       position: new google.maps.LatLng(40.72, -74)
+  //   });
+    
+  //   var info = new SnazzyInfoWindow({
+  //       marker: marker,
+  //       offset: {
+  //           left: '46px'  
+  //       },
+  //       content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+  //   });
+    
+  //   info.open();
+
+
+},[])
 
   const Card = () => {
     return (
@@ -133,11 +159,10 @@ const DownloadApp = () => {
   return (
     <>
     <Appbar/>
-    
     <div className={classes.root_main}>
       <Grid item xs={12}>
         <Box className={classes.mapBox}>
-          <img src={map} />
+        <GoogleMap/>
         </Box>
         <Box className={classes.mapBottomLogo}>
           <div className="logoBox">

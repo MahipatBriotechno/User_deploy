@@ -1,39 +1,39 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
-import logo from "../../../images/logo.svg";
+import React from "react"
+import { makeStyles } from "@material-ui/core/styles"
+import AppBar from "@material-ui/core/AppBar"
+import Toolbar from "@material-ui/core/Toolbar"
+import Typography from "@material-ui/core/Typography"
+import Menu from "@material-ui/core/Menu"
+import MenuItem from "@material-ui/core/MenuItem"
+import logo from "../../../images/logo.svg"
 
-import logoText from "../../../images/name_logo.svg";
-import "../../../index.css";
-import profile from "../../../images/icon/profile.svg";
+import logoText from "../../../images/name_logo.svg"
+import "../../../index.css"
+import profile from "../../../images/icon/profile.svg"
 
-import { Button, Grid } from "@material-ui/core";
-import { createTheme, ThemeProvider } from "@material-ui/core/styles";
-import { ReactComponent as userIcon } from "../../../images/user_logo.svg";
-import Container from "@material-ui/core/Container";
+import { Button, Grid } from "@material-ui/core"
+import { createTheme, ThemeProvider } from "@material-ui/core/styles"
+import { ReactComponent as userIcon } from "../../../images/user_logo.svg"
+import Container from "@material-ui/core/Container"
 
-import laptopIcon from "../../../images/laptop.svg";
-import logoutIcon from "../../../images/logout.svg";
-import loginLogo from "../../../images/sign_in.svg";
-import { Select, SvgIcon, Box } from "@material-ui/core";
-import DialogBox from "./DialogBox/DialogBox";
-import SignIn from "./SignIn";
+import laptopIcon from "../../../images/laptop.svg"
+import logoutIcon from "../../../images/logout.svg"
+import loginLogo from "../../../images/sign_in.svg"
+import { Select, SvgIcon, Box } from "@material-ui/core"
+import DialogBox from "./DialogBox/DialogBox"
+import SignIn from "./SignIn"
 // import { useNavigate } from "react-router-dom";
-import {Link} from 'gatsby'
-
-const useStyles = makeStyles((theme) => ({
+import { Link } from "gatsby"
+const IsLogin = localStorage.getItem("IsLogin")
+const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     fontFamily: "DM Sans",
     width: "100%",
 
     "& .MuiAppBar-colorPrimary": {
-      backgroundColor: '#fff'
-    }
+      backgroundColor: "#fff",
+    },
   },
   appBar: {
     backgroundColor: "#FFFFFF",
@@ -62,8 +62,8 @@ const useStyles = makeStyles((theme) => ({
     // paddingRight: "15px",
   },
   active: {
-    fontWeight: '600',
-    color: '#211f1f !important'
+    fontWeight: "600",
+    color: "#211f1f !important",
   },
   navLink: {
     color: "#000000",
@@ -99,14 +99,14 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
   },
-}));
+}))
 
 const theme = createTheme({
   link: {
     fontFamily: ["DM Sans", "sans-serif"].join(","),
     fontSize: "18px",
   },
-});
+})
 
 const userMenu = [
   {
@@ -117,33 +117,38 @@ const userMenu = [
     icon: logoutIcon,
     title: "Platform",
   },
-];
+]
 
 export default function AppBarNew() {
-  const classes = useStyles();
+  const classes = useStyles()
 
-  const [openDialogBox, setOpenDialogBox] = React.useState(false);
-  const [isActive, setIsActive] = React.useState('');
+  const [openDialogBox, setOpenDialogBox] = React.useState(false)
+  const [isActive, setIsActive] = React.useState("")
 
   const handleClickOpenDialogBox = () => {
-    setOpenDialogBox(true);
-  };
+    setOpenDialogBox(true)
+  }
   const handleCloseDialogBox = () => {
-    setOpenDialogBox(false);
-  };
+    setOpenDialogBox(false)
+  }
 
   // let navigate = useNavigate();
- 
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = React.useState(null)
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget)
+  }
+const Logout=()=>
+{
+  setAnchorEl(null)
+  localStorage.clear()
+  window.location.href="/"
+}
   const handleClose = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+    
+  }
 
   return (
     <>
@@ -154,10 +159,7 @@ export default function AppBarNew() {
               <Toolbar className={classes.name}>
                 <Grid alignItems="center" container>
                   <Grid item md={2}>
-                    <Link
-                      className={classes.link}
-                      to="/User/Pages/homepage"
-                    >
+                    <Link className={classes.link} to="/User/Pages/homepage">
                       <img src={logo} />
                       <img src={logoText} className={classes.appHeading} />
                     </Link>
@@ -166,48 +168,81 @@ export default function AppBarNew() {
                   <Grid item md={10}>
                     <Box className={classes.menu}>
                       <Typography className={classes.navLink}>
-                        <Link to="#" className={classes.link}>Book</Link>
-                        <Link to="/User/Pages/FindRacqys/FindRacqys" style={{textDecoration:'none'}} className={`${classes.link} ${isActive == 'findRacqys' && classes.active }` } onClick={()=>{ setIsActive('findRacqys')}} >Find racqys</Link>
-                        <Link className={classes.link}>Explore</Link>
+                        <Link to="#" className={classes.link}>
+                          Book
+                        </Link>
+                        <Link
+                          to="/User/Pages/FindRacqys/FindRacqys"
+                          style={{ textDecoration: "none" }}
+                          className={`${classes.link} ${
+                            isActive == "findRacqys" && classes.active
+                          }`}
+                          onClick={() => {
+                            setIsActive("findRacqys")
+                          }}
+                        >
+                          Find racqys
+                        </Link>
+                        <Link to="/User/Pages/Explorer"className={classes.link}>Explore</Link>
                       </Typography>
                       <Box className={classes.rightBtns}>
-                        <Link to="/User/Pages/SeeClub/DownloadApp/" style={{textDecoration:'none'}}>
-                        <Button
-                          // onClick={handleClickDownloadApp}
-                          onClick={()=>{ setIsActive('downloadApp')}}
-                          variant="outlined"
-                          className={`${classes.lineButton} ${isActive == 'downloadApp' && classes.active }`}
+                        <Link
+                          to="/User/Pages/SeeClub/DownloadApp/"
+                          style={{ textDecoration: "none" }}
                         >
-                          Download app
-                        </Button>
+                          <Button
+                            // onClick={handleClickDownloadApp}
+                            onClick={() => {
+                              setIsActive("downloadApp")
+                            }}
+                            variant="outlined"
+                            className={`${classes.lineButton} ${
+                              isActive == "downloadApp" && classes.active
+                            }`}
+                          >
+                            Download app
+                          </Button>
                         </Link>
-                        <Button onClick={handleClickOpenDialogBox}>
-                          <img src={loginLogo} className={classes.signIn} />
-                        </Button>
-
-                        <Button
-                          aria-controls="simple-menu"
-                          aria-haspopup="true"
-                          onClick={handleClick}
-                        >
-                          <img src={profile} className={classes.signIn} /> Jakob
-                          spade
-                        </Button>
-                        <Menu
-                          id="simple-menu"
-                          anchorEl={anchorEl}
-                          keepMounted
-                          open={Boolean(anchorEl)}
-                          onClose={handleClose}
-                        >
-                          <Link to="/User/Pages/MyProfile/MyProfile/" style={{textDecoration:'none',color:'#000000d9'}}>
-                          
-                          <MenuItem onClick={()=>{ handleClose()}}>
-                            My Profile
-                          </MenuItem>
-                          </Link>
-                          <MenuItem onClick={handleClose}>Logout</MenuItem>
-                        </Menu>
+                        {IsLogin ? (
+                          <>
+                            <Button
+                              aria-controls="simple-menu"
+                              aria-haspopup="true"
+                              onClick={handleClick}
+                            >
+                              <img src={profile} className={classes.signIn} />{" "}
+                              Jakob spade
+                            </Button>
+                            <Menu
+                              id="simple-menu"
+                              anchorEl={anchorEl}
+                              keepMounted
+                              open={Boolean(anchorEl)}
+                              onClose={handleClose}
+                            >
+                              <Link
+                                to="/User/Pages/MyProfile/MyProfile/"
+                                style={{
+                                  textDecoration: "none",
+                                  color: "#000000d9",
+                                }}
+                              >
+                                <MenuItem
+                                  onClick={() => {
+                                    handleClose()
+                                  }}
+                                >
+                                  My Profile
+                                </MenuItem>
+                              </Link>
+                              <MenuItem onClick={Logout}>Logout</MenuItem>
+                            </Menu>
+                          </>
+                        ) : (
+                          <Button onClick={handleClickOpenDialogBox}>
+                            <img src={loginLogo} className={classes.signIn} />
+                          </Button>
+                        )}
                       </Box>
                     </Box>
                   </Grid>
@@ -229,5 +264,5 @@ export default function AppBarNew() {
         dialog_custom_style={classes.dialog_custom_style}
       />
     </>
-  );
+  )
 }
